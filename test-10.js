@@ -14,3 +14,18 @@
 // *********
 
 // 못품...
+//5개의 줄이 필요, 
+//(1번쨰줄 공백입력 별입력 줄바꿈을 위한 for문 필요.)
+//(공백을 위한 포문) (별을 위한 포문)
+
+let answer = ''
+for (let i=1; i<=5; i++){
+let tree = ''
+    for (let j=1; j<=5-i; j++){
+        tree = tree + ' '
+    }
+    for (let n=1; n<=i*2-1; n++){
+        tree = tree + '*'
+    }
+answer = answer + tree + '\n'
+}
