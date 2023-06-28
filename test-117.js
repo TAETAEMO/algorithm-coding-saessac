@@ -1,35 +1,31 @@
 // 문제 설명
-// 두 개의 문자열 str1, str2가 공백으로 구분되어 입력으로 주어집니다.
-// 입출력 예와 같이 str1과 str2을 이어서 출력하는 코드를 작성해 보세요.
+// 양의 정수 n이 매개변수로 주어질 때, n이 홀수라면 n 이하의 홀수인 모든 양의 정수의 합을 return 하고 n이 짝수라면 n 이하의 짝수인 모든 양의 정수의 제곱의 합을 return 하는 solution 함수를 작성해 주세요.
 
 // 제한사항
-// 1 ≤ str1, str2의 길이 ≤ 10
+// 1 ≤ n ≤ 100
 // 입출력 예
-// 입력 #1
+// n	result
+// 7	16
+// 10	220
+// 입출력 예 설명
+// 입출력 예 #1
 
-// apple pen
-// 출력 #1
+// 예제 1번의 n은 7로 홀수입니다. 7 이하의 모든 양의 홀수는 1, 3, 5, 7이고 이들의 합인 1 + 3 + 5 + 7 = 16을 return 합니다.
+// 입출력 예 #2
 
-// applepen
-// 입력 #2
+// 예제 2번의 n은 10으로 짝수입니다. 10 이하의 모든 양의 짝수는 2, 4, 6, 8, 10이고 이들의 제곱의 합인 22 + 42 + 62 + 82 + 102 = 4 + 16 + 36 + 64 + 100 = 220을 return 합니다.
 
-// Hello World!
-// 출력 #2
-
-// HelloWorld!
-
-const readline = require("readline");
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
-
-let input = [];
-
-rl.on("line", function (line) {
-  input = line.split(" ");
-}).on("close", function () {
-  str1 = input[0];
-  str2 = input[1];
-  console.log(str1 + str2);
-});
+function solution(n) {
+  const result = [];
+  if (n % 2 === 0) {
+    for (let i = n; i > 0; i--) {
+      if (i % 2 === 0) result.push(i);
+    }
+    return result.reduce((acc, cur) => acc + cur ** 2, 0);
+  } else {
+    for (let i = n; i > 0; i--) {
+      if (i % 2 === 1) result.push(i);
+    }
+    return result.reduce((acc, cur) => acc + cur, 0);
+  }
+}
